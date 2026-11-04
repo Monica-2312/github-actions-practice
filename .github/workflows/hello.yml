@@ -14,6 +14,9 @@ jobs:
   hello:
     runs-on: ubuntu-latest
 
+    env:
+      MY_SECRET: ${{ secrets.MY_SECRET }}
+
     steps:
       - name: Print welcome message
         run: echo "Hello, GitHub Actions is working!"
@@ -26,3 +29,12 @@ jobs:
 
       - name: List repository files
         run: ls -la
+
+      - name: Check GitHub secret
+        run: |
+          if [ -n "$MY_SECRET" ]; then
+            echo "GitHub secret is configured successfully"
+          else
+            echo "GitHub secret is missing"
+            exit 1
+          fi
