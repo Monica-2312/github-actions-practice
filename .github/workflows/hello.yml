@@ -14,3 +14,9 @@ jobs:
 
       - name: Show current date
         run: date
+        
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: List repository files
+        run: ls -la
