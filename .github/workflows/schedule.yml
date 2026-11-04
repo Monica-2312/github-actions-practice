@@ -1,0 +1,17 @@
+name: Schedule Practice
+
+on:
+  schedule:
+    - cron: "30 2 * * 1-5"
+
+  workflow_dispatch:
+
+jobs:
+  scheduled-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display scheduled message
+        run: |
+          echo "Scheduled workflow is running"
+          date -u
