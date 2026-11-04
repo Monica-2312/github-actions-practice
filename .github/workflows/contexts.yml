@@ -1,0 +1,15 @@
+name: Contexts Practice
+
+on:
+  workflow_dispatch:
+
+jobs:
+  context:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display GitHub context
+        run: |
+          echo "Triggered by: ${{ github.actor }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref }}"
