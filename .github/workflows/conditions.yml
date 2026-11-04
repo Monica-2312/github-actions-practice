@@ -1,0 +1,21 @@
+
+name: Conditions Practice
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check condition
+        if: ${{ 1 == 1 }}
+        run: echo "Condition is TRUE"
+
+      - name: Skip condition
+        if: ${{ 1 == 2 }}
+        run: echo "This step will not run"
+
+      - name: Final step
+        run: echo "Workflow completed"
