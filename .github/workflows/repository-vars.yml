@@ -1,0 +1,15 @@
+name: Repository Variables Practice
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display repository variable
+        run: echo "Application name is ${{ vars.APP_NAME }}"
+
+      - name: Display another message
+        run: echo "Repository variables practice completed"
