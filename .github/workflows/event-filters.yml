@@ -1,0 +1,33 @@
+name: Event Filters Practice
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "build.gradle"
+
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display event details
+        run: |
+          echo "Event filter practice"
+          echo "Branch: ${{ github.ref }}"
+          echo "Triggered by: ${{ github.event_name }}"
